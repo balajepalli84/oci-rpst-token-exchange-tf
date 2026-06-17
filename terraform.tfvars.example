@@ -1,0 +1,21 @@
+# Copy this file to terraform.tfvars and fill in your values.
+
+idcs_endpoint = "https://idcs-xxxxxxxxxxxx.identity.oraclecloud.com"
+region        = "us-ashburn-1"
+
+# Confidential app
+confidential_app_name = "rpst-confidential-app"
+
+# Trust config
+trust_name        = "rpst-trust"
+trust_description = "RPST trust for GitHub Actions workload"
+
+# External IdP — GitHub Actions example
+issuer              = "https://token.actions.githubusercontent.com"
+public_key_endpoint = "https://token.actions.githubusercontent.com/.well-known/jwks"
+
+# Workload identifier — the calling workload passes this same string during token exchange
+impersonating_resource = "ref_github"
+
+# Claims to forward into the issued RPST (max 3)
+claim_propagations = ["ext_workflow_ref", "ext_repository", "ext_actor"]
